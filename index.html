@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CrossFit Open 26.1 Thailand Analytics</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    :root {
+      --bg: #0b1020;
+      --card: #131a2a;
+      --card-2: #1a2235;
+      --text: #f5f7fb;
+      --muted: #aab4c8;
+      --accent: #66d9ef;
+      --border: #24304a;
+      --shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: linear-gradient(180deg, #08101f 0%, #0e1526 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .container {
+      width: min(1100px, 92%);
+      margin: 0 auto;
+    }
+
+    header {
+      padding: 56px 0 28px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      margin-bottom: 28px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      font-size: 0.9rem;
+      color: var(--accent);
+      font-weight: 700;
+      margin-bottom: 12px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      line-height: 1.15;
+      margin-bottom: 14px;
+    }
+
+    .subtitle {
+      max-width: 760px;
+      color: var(--muted);
+      font-size: 1.02rem;
+    }
+
+    .section {
+      margin: 32px 0;
+    }
+
+    .section h2 {
+      font-size: 1.5rem;
+      margin-bottom: 8px;
+    }
+
+    .section p.section-desc {
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .kpi-card {
+      background: rgba(19, 26, 42, 0.9);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 18px;
+      box-shadow: var(--shadow);
+    }
+
+    .kpi-label {
+      color: var(--muted);
+      font-size: 0.92rem;
+      margin-bottom: 8px;
+    }
+
+    .kpi-value {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .kpi-note {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .chart-card {
+      background: rgba(19, 26, 42, 0.9);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 18px;
+      margin-bottom: 22px;
+      box-shadow: var(--shadow);
+    }
+
+    .chart-card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 8px;
+    }
+
+    .chart-card p {
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+
+    .chart-card img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 12px;
+      background: #0b1220;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .takeaways {
+      display: grid;
+      gap: 14px;
+      margin-top: 16px;
+    }
+
+    .takeaway {
+      background: rgba(26, 34, 53, 0.9);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 16px;
+    }
+
+    .takeaway strong {
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    footer {
+      margin: 44px 0 28px;
+      padding-top: 22px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    @media (max-width: 820px) {
+      .two-col,
+      .kpi-grid {
+        grid-template-columns: 1fr;
+      }
+
+      header {
+        padding-top: 36px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="eyebrow">Thailand Leaderboard Analysis</div>
+      <h1>CrossFit Open 26.1 Thailand</h1>
+      <p class="subtitle">
+        Lightweight visual report built from the Thailand 26.1 leaderboard dataset.
+        This page focuses on participation structure, score distribution, competitiveness,
+        and percentile benchmarking from the available score-and-rank data.
+      </p>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="section">
+      <h2>Overview</h2>
+      <p class="section-desc">
+        The dataset supports leaderboard-level analysis: rank, reps, gender, and division.
+        It does not include athlete names, affiliates, geography, or age in this version.
+      </p>
+
+      <div class="kpi-grid">
+        <div class="kpi-card">
+          <div class="kpi-label">Total Valid Results</div>
+          <div class="kpi-value">556</div>
+          <div class="kpi-note">Combined men + women entries after cleaning</div>
+        </div>
+
+        <div class="kpi-card">
+          <div class="kpi-label">Participation Split</div>
+          <div class="kpi-value">284 / 272</div>
+          <div class="kpi-note">Men vs Women</div>
+        </div>
+
+        <div class="kpi-card">
+          <div class="kpi-label">Dominant Division</div>
+          <div class="kpi-value">Rx</div>
+          <div class="kpi-note">Largest share of entries in this file</div>
+        </div>
+
+        <div class="kpi-card">
+          <div class="kpi-label">Overall Median Score</div>
+          <div class="kpi-value">180</div>
+          <div class="kpi-note">Median reps across the cleaned dataset</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Performance Distribution</h2>
+      <p class="section-desc">
+        These charts show where most athletes cluster, how score spread differs by group,
+        and how performance changes across the leaderboard.
+      </p>
+
+      <div class="chart-card">
+        <h3>Score Distribution by Gender</h3>
+        <p>
+          Useful for seeing the overall shape of the performance field and where most scores are concentrated.
+        </p>
+        <img src="score_distribution_by_gender.png" alt="Score distribution by gender">
+      </div>
+
+      <div class="chart-card">
+        <h3>Score Spread by Gender and Division</h3>
+        <p>
+          Box plots help compare median performance and variability between divisions and genders.
+        </p>
+        <img src="boxplot_score_by_gender_division.png" alt="Box plot score by gender and division">
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Competitiveness</h2>
+      <p class="section-desc">
+        These views are designed for benchmarking: how steep the leaderboard is,
+        and what score levels are needed to sit in stronger percentile bands.
+      </p>
+
+      <div class="two-col">
+        <div class="chart-card">
+          <h3>Percentile Curve</h3>
+          <p>
+            Best for understanding score benchmarks such as top 10%, top 25%, and median level.
+          </p>
+          <img src="percentile_curve.png" alt="Percentile curve">
+        </div>
+
+        <div class="chart-card">
+          <h3>Rank vs Score</h3>
+          <p>
+            Shows how quickly scores drop off as rank increases, highlighting top-end compression or separation.
+          </p>
+          <img src="rank_vs_score.png" alt="Rank versus score">
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Top Leaderboard Snapshot</h2>
+      <p class="section-desc">
+        A quick visual summary of top-performing entries in this dataset export.
+      </p>
+
+      <div class="chart-card">
+        <h3>Top 10 Snapshot</h3>
+        <p>
+          A presentation-friendly leaderboard view for quick sharing and social storytelling.
+        </p>
+        <img src="leaderboard_top10.png" alt="Top 10 leaderboard snapshot">
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Key Takeaways</h2>
+      <p class="section-desc">
+        These are descriptive findings from the available leaderboard structure only.
+        They should not be treated as causal conclusions.
+      </p>
+
+      <div class="takeaways">
+        <div class="takeaway">
+          <strong>1) The field is Rx-heavy.</strong>
+          Most valid entries in this dataset are in the Rx division, making Rx the main competitive story.
+        </div>
+
+        <div class="takeaway">
+          <strong>2) Men and women participation is relatively balanced.</strong>
+          The two gender groups are close in size, allowing clean side-by-side comparisons.
+        </div>
+
+        <div class="takeaway">
+          <strong>3) Percentile benchmarks are more useful than a single average.</strong>
+          For athletes, coaches, and content viewers, percentile cutoffs communicate competitive standing better than raw mean score alone.
+        </div>
+
+        <div class="takeaway">
+          <strong>4) This file is best for leaderboard analysis, not gym or province analysis.</strong>
+          Richer community insights would need athlete name, affiliate, location, age, and tie-break fields.
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="container">
+    Built for simple GitHub Pages publishing. All image files are referenced from the same folder as <code>index.html</code>.
+  </footer>
+</body>
+</html>
