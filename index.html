@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CrossFit Open 26.1 Thailand</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="hero">
+    <div class="wrap">
+      <h1>CrossFit Open 26.1 Thailand</h1>
+      <p>A lightweight analytics snapshot built from the uploaded Thailand rank-and-score table.</p>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="cards">
+      <div class="card"><h3>Total athletes</h3><p>556</p></div>
+      <div class="card"><h3>Men</h3><p>284</p></div>
+      <div class="card"><h3>Women</h3><p>272</p></div>
+      <div class="card"><h3>Rx share</h3><p>79.7%</p></div>
+    </section>
+
+    <section>
+      <h2>Overview</h2>
+      <p>This dataset is a paired men/women rank table rather than a full athlete-level export. It supports score benchmarking and field-depth analysis, but not affiliate, geography, age, or athlete-name storytelling.</p>
+    </section>
+
+    <section>
+      <h2>Participation</h2>
+      <p>The field is strongly Rx-heavy, with the deepest group in Men's Rx.</p>
+      <img src="charts/participation_by_gender_division.png" alt="Participation by gender and division">
+    </section>
+
+    <section>
+      <h2>Performance distribution</h2>
+      <p>Most athletes cluster in the mid-range, while the top end separates more sharply in the women's field.</p>
+      <div class="grid">
+        <img src="charts/score_distribution_by_gender.png" alt="Score distribution by gender">
+        <img src="charts/boxplot_score_by_gender_division.png" alt="Box plot by gender and division">
+      </div>
+    </section>
+
+    <section>
+      <h2>Competitive structure</h2>
+      <p>Percentile curves make it easy to benchmark what score is needed to sit in the top 10%, top 25%, or around the middle of the field.</p>
+      <div class="grid">
+        <img src="charts/percentile_curve.png" alt="Percentile curve">
+        <img src="charts/rank_vs_score.png" alt="Rank vs score">
+      </div>
+    </section>
+
+    <section>
+      <h2>Key takeaways</h2>
+      <ul>
+        <li>Strong Rx dominance (79.7% of all valid entries).</li>
+        <li>Men and women are close in participation size (284 vs 272).</li>
+        <li>Women's top score is higher than men's in this file (317 vs 289).</li>
+        <li>This file is best used for benchmarking and field-depth analysis, not gym or region comparison.</li>
+      </ul>
+    </section>
+  </main>
+</body>
+</html>
